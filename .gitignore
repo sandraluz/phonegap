@@ -1,0 +1,8 @@
+#Ficheros de plataformas
+/platforms/*
+
+
+#otras pantallas
+/.cordoba/*
+/hooks/*
+/plugins/*
