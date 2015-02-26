@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/flaticon.css" />
+
+        <title>Phonegap - Clase 2</title>
+    </head>
+    <body>
+        <div id="menu">
+            <ul class="ulMenu">
+                <li onclick="changePage('page1')">Plugins</li>
+                <li onclick="changePage('page2')">Estado Batería</li>
+                <li onclick="changePage('page3')">Conexiones inalámbricas</li>
+                <li onclick="changePage('page4')">Sonido y Notificaciones</li>
+                <li onclick="changePage('page5')">Idioma</li>
+            </ul>
+        </div>
+        
+        <div class="body visible" id="Page-1">
+            <header>
+                <div onclick="menuButtonClick()" class="btn flaticon-menu27"></div>
+                <div class="title" id="title">Plugins</div>
+            </header>
+			<div class="content">
+                <h1>Plugins</h1>
+                <button>GPS</button>
+                <p id="p-gps"></p>
+			</div>
+        </div>
+        
+        <div class="body hide" id="Page-2">
+            <header>
+                <div onclick="menuButtonClick()" class="btn flaticon-menu27"></div>
+                <div class="title" id="title">Estado batería</div>
+            </header>
+			<div class="content">
+                <h1>Estado de batería</h1>
+                <p id="p-battery"></p>
+			</div>
+        </div>  
+
+        <div class="body hide" id="Page-3">
+            <header>
+                <div onclick="menuButtonClick()" class="btn flaticon-menu27"></div>
+                <div class="title" id="title">Conexiones inalámbricas</div>
+            </header>
+			<div class="content">
+                <h1>Conexiones inalámbricas y redes</h1>
+                <button>Wi-fi</button>
+                <p id="p-wifi"></p>
+                <button>Bluetooth</button>
+                <p id="p-bluetooth"></p>
+			</div>
+        </div> 
+        
+        <div class="body hide" id="Page-4">
+            <header>
+                <div onclick="menuButtonClick()" class="btn flaticon-menu27"></div>
+                <div class="title" id="title">Sonido y Notificaciones</div>
+            </header>
+			<div class="content">
+                <h1>Sonidos y notificaciones</h1>
+                <button>Sonido</button>
+                <p id="p-sound"></p>
+                <button>Notificaciones</button>
+                <p id="p-notify"></p>
+			</div>
+        </div> 
+        
+        <div class="body hide" id="Page-5">
+            <header>
+                <div onclick="menuButtonClick()" class="btn flaticon-menu27"></div>
+                <div class="title" id="title">Idioma</div>
+            </header>
+			<div class="content">
+                <h1>Idioma</h1>
+                <p id="p-language"></p>
+			</div>
+        </div> 
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/fastclick.js"></script>
+         <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>
