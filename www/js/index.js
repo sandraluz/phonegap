@@ -36,7 +36,7 @@ var events = {
         FastClick.attach(document.body);
     },
     backButton: function() {
-         navigator.app.exitApp()
+         // navigator.app.exitApp()
     },
     pause: function (){
         //console.log("events.pause");
@@ -56,11 +56,17 @@ document.addEventListener('pause', events.pause, false);
 function menuButtonClick() {
     //console.log("menuButtonClick menuIsOpen:"+menuIsOpen)
     if(menuIsOpen) {
+        
+       // console.log(pages[currentPage]);
+        
         pages[currentPage].className = "body transition center";
         menuIsOpen = false;
+       // console.log("pasa a auqi");
     } else {
+       // console.log(pages[currentPage]);
         pages[currentPage].className = "body transition right";
         menuIsOpen = true;
+       // console.log("pasa a auq 2i");
     }
 }
 
