@@ -96,6 +96,21 @@ function showAlert() {
     );
 }
 
+function showMsg(mensaje, titulo, textbutton) {
+    if(titulo==undefined){
+        titulo = 'Titulo';
+    }
+    if(textbutton==undefined){
+        textbutton = 'De acuerdo';
+    }
+    navigator.notification.alert(
+        mensaje,  // message
+        function() { },         // callback
+        titulo,            // title
+        textbutton                  // buttonName
+    );
+}
+
 function showNoNative() {
     alert("Esta es una alerta desde JavaScript");
 }
@@ -140,6 +155,7 @@ function checkConnection() {
     states[Connection.CELL]     = 'Cell generic connection';
     states[Connection.NONE]     = 'No network connection';
 
-    alert('Tipo de conexion: ' + states[networkState]);
+    showMsg('Tipo de conexion: ' + states[networkState], 'Tipo de conexion');
+    //alert('Tipo de conexion: ' + states[networkState]);
     
 }
