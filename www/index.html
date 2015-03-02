@@ -14,10 +14,11 @@
         <div id="menu">
             <ul class="ulMenu">
                 <li onclick="changePage('page1')">Plugins</li>
-                <li onclick="changePage('page2')">Estado Batería</li>
+                <li onclick="changePage('page2')">Estado batería</li>
                 <li onclick="changePage('page3')">Conexiones inalámbricas</li>
                 <li onclick="changePage('page4')">Sonido y Notificaciones</li>
                 <li onclick="changePage('page5')">Idioma</li>
+                <li onclick="changePage('page6')">Foto</li>
             </ul>
         </div>
         
@@ -29,9 +30,16 @@
             </header>
 			<div class="content">
                 <h1>Plugins</h1>
-                <button>GPS</button>
+                <button onclick="showGPS()">GPS</button>
                 <p id="p-gps"></p>
+                
+                <button onclick="showAlert()">Alert Nativa!</button>
+                <button onclick="showNoNative()">Alerta no nativa</button>
+                
+                
 			</div>
+            
+                       
         </div>
         
         
@@ -53,6 +61,8 @@
             </header>
 			<div class="content">
                 <h1>Conexiones inalámbricas y redes</h1>
+                <button onclick="checkConnection()" >Verifica Conexión</button>
+                <p id="p-connect"></p>
                 <button>Wi-fi</button>
                 <p id="p-wifi"></p>
                 <button>Bluetooth</button>
@@ -85,6 +95,18 @@
 			</div>
         </div> 
         
+        
+         <div class="body hide" id="Page-6">
+            <header>
+                <div onclick="menuButtonClick()" class="btn flaticon-menu27"></div>
+                <div class="title" id="title">Foto</div>
+            </header>
+			<div class="content">
+                <h1>Camara de fotos</h1>
+                <button onclick="takePhoto()">Tomar foto</button>
+                <img src="" id="imagen" />
+			</div>
+        </div>  
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/fastclick.js"></script>

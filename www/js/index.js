@@ -8,7 +8,8 @@ loadPages = function() {
         page2: document.getElementById("Page-2"),
         page3: document.getElementById("Page-3"),
         page4: document.getElementById("Page-4"),
-        page5: document.getElementById("Page-5")
+        page5: document.getElementById("Page-5"),
+        page6: document.getElementById("Page-6")
     }
 }
 
@@ -81,4 +82,47 @@ function changePage(pageSelected) {
         currentPage = pageSelected;
         menuIsOpen = false;
     },0);
+}
+
+
+function showAlert() {
+    navigator.notification.alert(
+        'Esto es una alerta nativa!',  // message
+        function() {
+            
+        },         // callback
+        'Titulo',            // title
+        'De acuerdo'                  // buttonName
+    );
+}
+
+function showNoNative() {
+    alert("Esta es una alerta desde JavaScript");
+}
+
+function showGPS() {
+    navigator.geolocation.getCurrentPosition(function(position ) {
+    alert('Latitude: '          + position.coords.latitude          + '\n' +
+          'Longitude: '         + position.coords.longitude         + '\n' +
+          'Altitude: '          + position.coords.altitude          + '\n' +
+          'Accuracy: '          + position.coords.accuracy          + '\n' +
+          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+          'Heading: '           + position.coords.heading           + '\n' +
+          'Speed: '             + position.coords.speed             + '\n' +
+          'Timestamp: '         + position.timestamp                + '\n');
+    }, function() {
+        
+    });
+}
+
+function takePhoto() {
+    console.log("Entramos en la función de tomar foto");
+    navigator.camera.getPicture(function(imageData) {
+        alert(imageData);
+        document.getElementById("imagen").src = imageData;
+    }, function(message) {
+        alert('Failed because: ' + message);
+    }, { quality: 50,
+        destinationType: Camera.DestinationType.FILE_URI
+    });
 }
