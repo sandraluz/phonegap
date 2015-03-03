@@ -44,7 +44,7 @@ var events = {
     volumeupbutton
 */
     deviceReady: function() {
-        alert("Aplicación iniciada");
+       // alert("Aplicación iniciada");
     },
     // evento disparado cuando todo el HTML ha sido cargado
     contentLoaded: function() {
@@ -56,15 +56,14 @@ var events = {
     },
     pause: function (){
         //console.log("events.pause");
-    }, 
-    
+    }
+    /*, 
     onBatteryStatus function(info){
-         //console.log("Level: " + info.level + " isPlugged: " + info.isPlugged);
+         alert("Level: " + info.level + " isPlugged: " + info.isPlugged);
         showMsg("Level: " + info.level + " isPlugged: " + info.isPlugged,
                 'Battery Status',
                 'De acuerdo');
-    
-    }
+    }*/
     
 }
 
@@ -77,7 +76,9 @@ document.addEventListener('backbutton', events.backButton, false);
 
 document.addEventListener('pause', events.pause, false);
 
-document.addEventListener("batterystatus", events.onBatteryStatus, false);
+//document.addEventListener("batterystatus", events.onBatteryStatus, false);
+//window.addEventListener("batterystatus", events.onBatteryStatus, false);
+
 
 // función click en menú
 function menuButtonClick() {
@@ -172,7 +173,18 @@ function checkConnection() {
     //alert('Tipo de conexion: ' + states[networkState]);
     
 }
-
+/*
 function estadoBateria(){
     batterystatus()
+}
+*/
+
+var options = {
+  date: new Date(),
+  mode: 'date'
+};
+function fecha(){
+    datePicker.show(options, function(date){
+      alert("date result " + date);  
+    });
 }
