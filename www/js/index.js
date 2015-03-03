@@ -13,6 +13,21 @@ loadPages = function() {
     }
 }
 
+function showMsg(mensaje, titulo, textbutton) {
+    if(titulo==undefined){
+        titulo = 'Titulo';
+    }
+    if(textbutton==undefined){
+        textbutton = 'De acuerdo';
+    }
+    navigator.notification.alert(
+        mensaje,  // message
+        function() { },         // callback
+        titulo,            // title
+        textbutton                  // buttonName
+    );
+}
+
 var events = {
     /*
     Eventos de una app en PhoneGap
@@ -29,7 +44,7 @@ var events = {
     volumeupbutton
 */
     deviceReady: function() {
-        // console.log("Aplicación iniciada");
+        alert("Aplicación iniciada");
     },
     // evento disparado cuando todo el HTML ha sido cargado
     contentLoaded: function() {
@@ -41,7 +56,16 @@ var events = {
     },
     pause: function (){
         //console.log("events.pause");
+    }, 
+    
+    onBatteryStatus function(info){
+         //console.log("Level: " + info.level + " isPlugged: " + info.isPlugged);
+        showMsg("Level: " + info.level + " isPlugged: " + info.isPlugged,
+                'Battery Status',
+                'De acuerdo');
+    
     }
+    
 }
 
 // listener evento de dispositivo listo
@@ -52,6 +76,8 @@ document.addEventListener('DOMContentLoaded', events.contentLoaded, false);
 document.addEventListener('backbutton', events.backButton, false);
 
 document.addEventListener('pause', events.pause, false);
+
+document.addEventListener("batterystatus", events.onBatteryStatus, false);
 
 // función click en menú
 function menuButtonClick() {
@@ -96,20 +122,7 @@ function showAlert() {
     );
 }
 
-function showMsg(mensaje, titulo, textbutton) {
-    if(titulo==undefined){
-        titulo = 'Titulo';
-    }
-    if(textbutton==undefined){
-        textbutton = 'De acuerdo';
-    }
-    navigator.notification.alert(
-        mensaje,  // message
-        function() { },         // callback
-        titulo,            // title
-        textbutton                  // buttonName
-    );
-}
+
 
 function showNoNative() {
     alert("Esta es una alerta desde JavaScript");
@@ -158,4 +171,8 @@ function checkConnection() {
     showMsg('Tipo de conexion: ' + states[networkState], 'Tipo de conexion');
     //alert('Tipo de conexion: ' + states[networkState]);
     
+}
+
+function estadoBateria(){
+    batterystatus()
 }
